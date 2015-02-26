@@ -1,0 +1,38 @@
+<div class="page-header">
+        <h3>Products &nbsp; <a href="#" onclick="return false;" class="btn btn-success btn-large">Add new product</a></h3>
+</div>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>            
+            <th>
+                Photo
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="product in products | orderBy:sortparam">
+            <td>
+                {{product.photo}}
+            </td>
+            <td>
+                {{product.title}}
+            </td>
+            <td>
+                {{product.description}}
+            </td>
+            <td>
+                <a href="#" onclick="return false;" class="btn btn-primary">Edit</a>
+                <a href="#" onclick="return false;" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

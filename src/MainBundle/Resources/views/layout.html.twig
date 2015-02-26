@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>{%block title%}{%endblock%}</title>
+        
+        {%stylesheets "@MainBundle/Resources/public/css/*" output="css/product.css" filter="cssrewrite"
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+        {% endstylesheets%}
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{url('index')}}">Product list</a>
+            </div>
+        </nav>
+            <div class="container-fluid">
+        {% block content %}{% endblock %}
+        </div>
+            <footer class="footer">
+                <div class="container">
+                    <p class="text-muted">&copy; Product list {{ 'now'|date('Y')}}</p>
+                </div>
+            </footer>
+        {%javascripts output="js/product.js"
+        "@MainBundle/Resources/public/js/jquery.min.js"
+        "@MainBundle/Resources/public/js/bootstrap.min.js"
+        "@MainBundle/Resources/public/js/angular.min.js"
+        "@MainBundle/Resources/public/js/angular-route.min.js"
+        "@MainBundle/Resources/public/js/custom.js"
+        %}
+            <script type="text/javascript" src="{{asset_url}}"></script>
+        {%endjavascripts%}
+    </body>
+</html>
