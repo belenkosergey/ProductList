@@ -1,6 +1,34 @@
-get_products:
+api_get_products:
     pattern:     /api/products
     defaults: { _controller: ApiBundle:Api:getProducts}
     requirements:
       _method: GET
+      _format: json
+
+api_get_product:
+    pattern: /api/product/{id}
+    defaults: { _controller: ApiBundle:Api:getProduct }
+    requirements:
+      _method: GET
+      _format: json
+      
+api_post_product:
+    pattern: /api/product
+    defaults: { _controller: ApiBundle:Api:postProduct }
+    requirements:
+      _method: POST
+      _format: json
+      
+api_put_product:
+    pattern: /api/product/{id}
+    defaults: { _controller: ApiBundle:Api:putProduct }
+    requirements:
+      _method: PUT
+      _format: json
+      
+api_delete_product:
+    pattern: /api/product/{id}
+    defaults: { _controller: ApiBundle:Api:deleteProduct }
+    requirements:
+      _method: DELETE
       _format: json

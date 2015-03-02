@@ -4,6 +4,8 @@ namespace ApiBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="product")
@@ -19,11 +21,13 @@ class Product {
     
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank()
      */
     protected $title;
     
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank()
      */
     protected $description;
     
@@ -41,6 +45,19 @@ class Product {
     public function getId()
     {
         return $this->id;
+    }
+    
+    /**
+     * Set id
+     *
+     * @param string id
+     * @return Product
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -110,5 +127,10 @@ class Product {
     public function getPhoto()
     {
         return $this->photo;
+    }
+    
+    public function isNew()
+    {
+        return is_null($this->id);
     }
 }
